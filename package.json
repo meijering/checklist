@@ -13,6 +13,6 @@
   "scripts": {
     "start": "gulp start & gulp mock",
     "lint": "eslint . --ext js,html --ignore-path .gitignore",
-    "test": "npm run lint && polymer test"
+    "test": "polymer test"
   }
 }
