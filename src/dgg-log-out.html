@@ -1,0 +1,81 @@
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
+
+<dom-module id="dgg-log-out">
+  <template>
+    <style>
+      :host {
+        margin: 0;
+        padding: 0;
+      }
+      paper-button {
+        background: #f44336;
+        color: #fff;
+        font-weight: bold;
+      }
+      span {
+        cursor: pointer;
+        display: inline-block;
+      }
+    </style>
+
+    <iron-ajax
+            id="logoutAjax"
+            method="post"
+            content-type="application/x-www-form-urlencoded"
+            handle-as="text"
+            on-response="handleUserResponse"
+            on-error="handleUserError"></iron-ajax>
+    <app-location route="{{route}}"></app-location>
+    <iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
+
+    <template is="dom-if" if="{{!link}}">
+      <paper-button raised on-tap="logout">uitloggen</paper-button>
+    </template>
+
+    <template is="dom-if" if="{{link}}">
+      <span on-tap="logout" href>uitloggen</span>
+    </template>
+    <template is="dom-if" if="[[_inAction]]">
+      <paper-spinner-lite alt="U wordt ingelogd..." active></paper-spinner-lite>
+    </template>
+  </template>
+
+  <script>
+    (function() {
+      Polymer({
+        is: 'dgg-log-out',
+        properties: {
+          storedUser: {
+          type: Object,
+        },
+          _inAction: {
+            type: Boolean,
+            value: false,
+          },
+          link: {
+            type: Boolean,
+            value: false,
+          },
+        },
+
+        logout: function() {
+          // remove user data
+          this.$.logoutAjax.url = '/scripts/logout.php';
+          this.$.logoutAjax.generateRequest();
+          this._inAction = true;
+        },
+        handleUserResponse: function(event) {
+          this.storedUser = null;
+          this.fire('logged-out');
+          this._inAction = false;
+        },
+        handleUserError: function(event) {
+          this.error = event.detail.request.xhr.response;
+        },
+      });
+    }());
+  </script>
+</dom-module>

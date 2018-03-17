@@ -1,0 +1,448 @@
+[
+  {
+    "vraag_id": 1,
+    "vraag": "We maken gebruik van groene elektriciteit",
+    "groep_id": 1,
+    "rang": 1,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 667,
+      "gebruiker_id": 80,
+      "vraag_id": 1,
+      "antwoord": "",
+      "ingevoerd_op": "2014-10-10 10:28:21"
+    },
+    "tips": [
+      {
+        "tip_id": 1,
+        "gebruiker_id": 0,
+        "vraag_id": 1,
+        "tip":
+          "Groene stroom is milieuvriendelijk omdat het wordt verkregen uit energiebronnen die nooit opraken (zon, wind, water, biomassa). Groene stroom wordt net als niet milieuvriendelijk opgewekte (grijze) stroom op het energienet gezet. Op het energienet is dus alle elektriciteit hetzelfde. Om zeker te weten dat u met uw groene energiecontract ook daadwerkelijk bijdraagt aan de opwekking van duurzame energie hebben energiebedrijven garantiecertificaten en/of een stroometiket. Energiebedrijven zijn verplicht hun klanten minimaal n keer per jaar een keuze aan te bieden tussen de verschillende energiebronnen die het bedrijf gaat gebruiken. Bij twijfel kunt u altijd even (door)vragen.",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 2,
+    "vraag": "We maken gebruik van groen gas",
+    "groep_id": 1,
+    "rang": 2,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 669,
+      "gebruiker_id": 80,
+      "vraag_id": 2,
+      "antwoord": "",
+      "ingevoerd_op": "2014-10-10 10:28:22"
+    },
+    "tips": [
+      {
+        "tip_id": 2,
+        "gebruiker_id": 0,
+        "vraag_id": 2,
+        "tip":
+          "Groen gas is gemaakt uit biomassa (verzamelterm voor hout, afval en diermeel). Je kunt uit biomassa energie halen door het te verbranden.  Groen gas is een goede vervanger van aardgas (dat ooit een keer opraakt). Het is alleen nog niet mogelijk om veel gas op een milieuvriendelijke manier te maken. Als energiebedrijven zeggen dat ze groen gas leveren, is dat meestal 'gewoon' aardgas. Het energiebedrijf laat vervolgens bomen planten om de schade aan het milieu te compenseren. Op een paar plaatsen in Nederland wordt groen gas in het aardgasnet gebracht. Ook zijn er al speciale tankstations voor bijvoorbeeld bussen of vuilniswagens op groen gas.",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 3,
+    "vraag":
+      "We wekken zelf energie op (bv met zonnepanelen, windmolen, aardwarmte, zonneboiler, e.d.)",
+    "groep_id": 1,
+    "rang": 3,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 668,
+      "gebruiker_id": 80,
+      "vraag_id": 3,
+      "antwoord": "",
+      "ingevoerd_op": "2014-10-10 10:28:22"
+    },
+    "tips": [
+      {
+        "tip_id": 3,
+        "gebruiker_id": 0,
+        "vraag_id": 3,
+        "tip":
+          "Overwegen jullie om zelf energie op te wekken? Kijk eerst eens op de website van AgentschapNL of er wellicht subsidies zijn => http://www.agentschapnl.nl/onderwerpen/duurzaam-ondernemen/gebouwen/woningbouw/energiesubsidiewijzer?gclid=CM2piM3fxbkCFS3HtAod1XgACA",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ],
+    "opmerkingen": [
+      {
+        "opmerking_id": 1,
+        "vraag_id": 3,
+        "gebruiker_id": 80,
+        "opmerking": "Een test",
+        "ingevoerd_op": "2013-09-19 19:24:22"
+      }
+    ]
+  },
+  {
+    "vraag_id": 4,
+    "vraag": "Onze elektrische apparaten hebben een A-energielabel",
+    "groep_id": 1,
+    "rang": 4,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": true,
+    "antwoord": {
+      "antwoord_id": 1067,
+      "gebruiker_id": 80,
+      "vraag_id": 4,
+      "antwoord": "1",
+      "ingevoerd_op": "2017-02-21 21:41:44"
+    },
+    "tips": [
+      {
+        "tip_id": 4,
+        "gebruiker_id": 0,
+        "vraag_id": 4,
+        "tip":
+          "Elektrische apparaten gebruiken steeds minder stroom, het zuinigste label is A+++. Toch stijgt ons energieverbruik, dit komt doordat we steeds meer elektrische apparaten gebruiken.",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 5,
+    "vraag":
+      "We (laten) controleren elk jaar of apparaten en installaties optimaal functioneren",
+    "groep_id": 1,
+    "rang": 5,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 671,
+      "gebruiker_id": 80,
+      "vraag_id": 5,
+      "antwoord": "",
+      "ingevoerd_op": "2014-10-10 10:28:23"
+    }
+  },
+  {
+    "vraag_id": 6,
+    "vraag":
+      "We hebben energie besparende maatregelen getroffen (bv tochtstrips / radiatorfolie e.d.)",
+    "groep_id": 1,
+    "rang": 6,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 303,
+      "gebruiker_id": 80,
+      "vraag_id": 6,
+      "antwoord": "",
+      "ingevoerd_op": "2014-05-21 11:01:05"
+    },
+    "tips": [
+      {
+        "tip_id": 5,
+        "gebruiker_id": 0,
+        "vraag_id": 6,
+        "tip":
+          "Kijk eens op de website van Meer met minder voor tips => http://www.meermetminder.nl/52/energie-besparen-met-mmm/maatregelen.html",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 7,
+    "vraag":
+      "In ruimtes waar niemand is, gaat of doen we de airco/verwarming/verlichting uit",
+    "groep_id": 1,
+    "rang": 7,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 304,
+      "gebruiker_id": 80,
+      "vraag_id": 7,
+      "antwoord": "",
+      "ingevoerd_op": "2014-05-21 11:01:05"
+    },
+    "tips": [
+      {
+        "tip_id": 6,
+        "gebruiker_id": 0,
+        "vraag_id": 7,
+        "tip":
+          "Na de zomer schiet het gasverbruik omhoog, logisch: de kachel gaat aan.<br /> \nEnkele aanbevelingen:\n<ul>\n<li>Droge lucht verwarmt beter, ventileer (of lucht) ruimtes.</li>\n<li>Zorg dat de dag- en nachtstand goed staan in geprogrammeerd. <br />\nDag: een half uur voor openingstijd aan.<br />\nNacht: een half uur voor sluitingstijd uit.</li>\n<li>Trek een trui aan.</li>\n</ul>\nTip: geef pedagogisch medewerkers een bodywarmer of vest van het bedrijf.\n",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 8,
+    "vraag":
+      "We hebben aanwezigheidsmelders en/of daglichtregeling op verlichting",
+    "groep_id": 1,
+    "rang": 8,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 672,
+      "gebruiker_id": 80,
+      "vraag_id": 8,
+      "antwoord": "",
+      "ingevoerd_op": "2014-10-10 10:28:24"
+    },
+    "tips": [
+      {
+        "tip_id": 7,
+        "gebruiker_id": 0,
+        "vraag_id": 8,
+        "tip":
+          "Het wordt afgeraden om de mechanische ventilatie uit te zetten. Ventileren kost doorgaans wel energie maar is geen verspilling. Schone lucht is belangrijk voor de gezondheid; ongezonde lucht versterkt allergien, luchtwegproblemen en irritatie van slijmvliezen. Om na te gaan of er voldoende wordt geventileerd, is een CO2-meter handig. Tijdens openingstijden is het raadzaam om de ventilatie op de hoogste stand te zetten.",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 9,
+    "vraag": "Kantoorapparatuur heeft een ingeschakelde spaarstand",
+    "groep_id": 1,
+    "rang": 9,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 673,
+      "gebruiker_id": 80,
+      "vraag_id": 9,
+      "antwoord": "",
+      "ingevoerd_op": "2014-10-10 10:28:25"
+    },
+    "tips": [
+      {
+        "tip_id": 8,
+        "gebruiker_id": 0,
+        "vraag_id": 9,
+        "tip":
+          "Gebruik geen screensaver (vooral niet met bewegende beelden). Dit bespaart 12 % energie.",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 10,
+    "vraag":
+      "We hebben afspraken gemaakt over het besparen van energie, water en andere grondstoffen",
+    "groep_id": 1,
+    "rang": 10,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 307,
+      "gebruiker_id": 80,
+      "vraag_id": 10,
+      "antwoord": "",
+      "ingevoerd_op": "2014-05-21 11:01:07"
+    },
+    "tips": [
+      {
+        "tip_id": 10,
+        "gebruiker_id": 0,
+        "vraag_id": 10,
+        "tip":
+          "Een huishouden (vergelijkbaar met een locatie voor kinderopvang) is per jaar zo'n 450 kilowattuur (kWh) kwijt aan stand-by verbruik. Tweederde daarvan is te vermijden door de apparaten echt uit te zetten (stekker uit het stopcontact), dat bespaart jaarlijks niet alleen veel energie, maar ook tientallen euro's.",
+        "ingevoerd_op": "2013-09-13"
+      },
+      {
+        "tip_id": 9,
+        "gebruiker_id": 0,
+        "vraag_id": 10,
+        "tip":
+          "Tip: beloon besparingen, dat werkt motiverend. Laat medewerkers daarbij zelf hun 'beloning' kiezen.",
+        "ingevoerd_op": "2013-09-12"
+      }
+    ]
+  },
+  {
+    "vraag_id": 11,
+    "vraag": "Als het kouder wordt doen we een trui aan",
+    "groep_id": 1,
+    "rang": 11,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 308,
+      "gebruiker_id": 80,
+      "vraag_id": 11,
+      "antwoord": "",
+      "ingevoerd_op": "2014-05-21 11:01:10"
+    },
+    "tips": [
+      {
+        "tip_id": 11,
+        "gebruiker_id": 0,
+        "vraag_id": 11,
+        "tip":
+          "Voor spelende kinderen is 17 graden de ideale temperatuur voor een binnenruimte. Het is bij kou effectiever om het lichaam goed te isoleren dan de verwarming hoger te zetten. Bovendien bespaar je zo enorm veel energie. En geld, want per graad dat je de kachel lager zet  bespaar je 7% op je stookkosten (en 7% CO2-uitstoot).",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 12,
+    "vraag": "We doen de was op maximaal 60 graden Celsius",
+    "groep_id": 1,
+    "rang": 12,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 315,
+      "gebruiker_id": 80,
+      "vraag_id": 12,
+      "antwoord": "",
+      "ingevoerd_op": "2014-05-21 11:01:59"
+    },
+    "tips": [
+      {
+        "tip_id": 76,
+        "gebruiker_id": 0,
+        "vraag_id": 12,
+        "tip":
+          "(Af)Wasmachines zijn grote water- en energieverbruikers. Door bewust om te gaan met het gebruik van dit soort apparaten bespaar je niet alleen water, maar ook energie. Draai alleen een (af)was als de machine vol zit. NB: met de hand afwassen is volgens berekeningen van Milieu Centraal voordeliger voor het milieu, met de kanttekening dat daarbij spaarzaam met water wordt omgegaan en niet kwistig wordt voor gespoeld. Dit geldt overigens ook voor het gebruik van de afwasmachine: voorspoelen is niet nodig.",
+        "ingevoerd_op": "2013-09-16"
+      }
+    ]
+  },
+  {
+    "vraag_id": 13,
+    "vraag": "De was droogt aan de lijn",
+    "groep_id": 1,
+    "rang": 13,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 316,
+      "gebruiker_id": 80,
+      "vraag_id": 13,
+      "antwoord": "",
+      "ingevoerd_op": "2014-05-21 11:02:01"
+    },
+    "tips": [
+      {
+        "tip_id": 12,
+        "gebruiker_id": 0,
+        "vraag_id": 13,
+        "tip":
+          "Als twee keer per week een was in de wasdroger wordt gedroogd kost dat jaarlijks gemiddeld 235 kWh elektriciteit (50 euro, prijspeil 2013). Dat komt overeen met 7 procent van het jaarlijks stroomverbruik van een gemiddeld huishouden (3600 kWh). Toch een wasdroger nodig, n het milieu ontlasten? Kies bij voorkeur een gasgestookte wasdroger, of een warmtepompdroger, dat scheelt energiekosten. Neem liever geen was-droogcombinatie: die verbruikt relatief veel energie.",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 14,
+    "vraag": "We hebben led-verlichting en/of energiezuinige verlichting",
+    "groep_id": 1,
+    "rang": 14,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 310,
+      "gebruiker_id": 80,
+      "vraag_id": 14,
+      "antwoord": "",
+      "ingevoerd_op": "2014-05-21 11:01:14"
+    },
+    "tips": [
+      {
+        "tip_id": 13,
+        "gebruiker_id": 0,
+        "vraag_id": 14,
+        "tip":
+          " Bij energiezuinige lampen met een schroefdraadfitting moet u op zaken letten als de lichtsterkte en lichtkleur, de dimbaarheid en het aantal keer dat de lamp aan- en uitgeschakeld kan worden. Om tot de beste keuze te komen heeft Milieu Centraal een Advies op maat ontwikkeld, doe hem hier => http://adviesopmaat.milieucentraal.nl/MC-AoM2/MC_AoM/kb_Zuiniglicht?init=true&amp;utm_source=mc&amp;utm_medium=banner&amp;utm_campaign=energiezuinige-lamp-kiezen",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 15,
+    "vraag": "Kranen gaan automatisch uit en/of hebben een waterbespaarstand",
+    "groep_id": 1,
+    "rang": 15,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false,
+    "antwoord": {
+      "antwoord_id": 311,
+      "gebruiker_id": 80,
+      "vraag_id": 15,
+      "antwoord": "",
+      "ingevoerd_op": "2014-05-21 11:01:15"
+    },
+    "tips": [
+      {
+        "tip_id": 14,
+        "gebruiker_id": 0,
+        "vraag_id": 15,
+        "tip":
+          "Het kost heel veel energie om schoon drinkwater te maken. En ook voor het verwarmen van water wordt veel energie gebruikt. Als u oude kranen en de toiletstortbak vervangt door moderne watersparende varianten kan het waterverbruik met 30 procent dalen. Een spoelonderbreker bespaart als snel 8.000 liter water per jaar. Inlegringetjes voor kranen (vanaf   1,75) besparen tot 3000 liter per jaar zonder dat u hierdoor comfort inlevert. Meer weten over water? Check: www.kraanwater.nu",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 16,
+    "vraag": "We repareren lekkende kranen en doorlopende toiletten direct",
+    "groep_id": 1,
+    "rang": 16,
+    "type": "checkbox",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": true,
+    "antwoord": {
+      "antwoord_id": 1066,
+      "gebruiker_id": 80,
+      "vraag_id": 16,
+      "antwoord": "1",
+      "ingevoerd_op": "2017-02-21 21:41:41"
+    },
+    "tips": [
+      {
+        "tip_id": 15,
+        "gebruiker_id": 0,
+        "vraag_id": 16,
+        "tip":
+          "Tien druppels water per minuut lijkt weinig, maar loopt op tot 1100 liter per jaar.",
+        "ingevoerd_op": "2013-09-13"
+      },
+      {
+        "tip_id": 16,
+        "gebruiker_id": 0,
+        "vraag_id": 16,
+        "tip":
+          "Tip: Breng het water en energieverbruik en de CO2-footprint van uw organisatie in kaart. Op basis hiervan wordt direct zichtbaar waar het beste op kan worden ingezet.",
+        "ingevoerd_op": "2013-09-13"
+      }
+    ]
+  },
+  {
+    "vraag_id": 17,
+    "vraag": "Ruimte voor aantekeningen:",
+    "groep_id": 1,
+    "rang": 17,
+    "type": "textarea",
+    "ingevoerd_op": "2013-06-30 22:26:08",
+    "checked": false
+  }
+]

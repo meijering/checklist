@@ -1,0 +1,30 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/dgg-app.html",
+  "fragments": [
+    "src/dgg-styles.html",
+    "src/dgg-welcome.html",
+    "src/dgg-log-out.html",
+    "src/dgg-intro.html",
+    "src/dgg-groepen.html",
+    "src/dgg-vragen.html",
+    "src/dgg-alle-vragen.html"
+  ],
+  "sources": [
+    "src/**/*",
+    "gfx/**/*",
+    "scripts/**/*",
+    "data/**/*",
+    "bower.json"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.js"
+  ],
+  "builds": [{
+    "bundle": true,
+    "js": {"minify": true},
+    "css": {"minify": true},
+    "html": {"minify": true}
+  }]
+}

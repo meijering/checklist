@@ -1,0 +1,65 @@
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="dgg-alle-vragen">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+       }
+
+      paper-progress {
+        width:100%;
+        --paper-progress-transition-duration: 0.08s;
+        --paper-progress-transition-timing-function: ease;
+        --paper-progress-transition-transition-delay: 0s;
+        --paper-progress-height:10px;
+      }
+    </style>
+
+    <iron-ajax
+            id="allVragenAjax"
+            method="post"
+            content-type="application/x-www-form-urlencoded"
+            handle-as="text"
+            on-response="handleAllVragenResponse"
+            on-error="handleAllVragenError"></iron-ajax>
+      <!--<?php echo $this->partial('legenda'); ?>-->
+      <h3>Openstaande vragen</h3>
+    <template is="dom-repeat" items="[[groepen]]" as="groep">
+      <h4>[[groep.naam]]</h4>
+
+      <template is="dom-repeat" items="[[groep.vragen]]" as="vraag">
+            <p class="open">[[vraag.vraag]]</p>
+      </template>
+    </template>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'dgg-alle-vragen',
+      properties: {
+        groepen: {
+          type: Object,
+        },
+        loggedIn: {
+          type: Boolean,
+          value: false,
+          observer: '_getAllVragen',
+        },
+      },
+      _getAllVragen: function(loggedIn) {
+        if (loggedIn) {
+          this.$.allVragenAjax.url = '/scripts/allVragen.php';
+          this.$.allVragenAjax.generateRequest();
+        }
+      },
+      handleAllVragenResponse: function(event) {
+        this.groepen = JSON.parse(event.detail.response);
+      },
+      handleAllVragenError: function(event) {
+        this.error = event.detail.request.xhr.response;
+      },
+    });
+  </script>
+</dom-module>

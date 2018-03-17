@@ -1,0 +1,104 @@
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<link rel="import" href="dgg-progress.html">
+<link rel="import" href="dgg-checkboxvraag.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="dgg-vragen">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+       }
+
+      h3 {
+        line-height: 64px;
+      }
+      dgg-progress {
+        float: left;
+        margin: 0 15px;
+        font-size: 65%;
+        --s-circle-progress-stroke-color: var(--app-primary-color);
+      }
+    </style>
+
+    <iron-ajax
+            id="vragenAjax"
+            method="post"
+            content-type="application/x-www-form-urlencoded"
+            handle-as="text"
+            on-response="handleVragenResponse"
+            on-error="handleVragenError"></iron-ajax>
+    <iron-ajax
+            id="antwoordAjax"
+            method="post"
+            content-type="application/x-www-form-urlencoded"
+            url="/scripts/addAntwoord.php"
+            debounce-duration="300"
+            on-response="handleAntwResponse"
+            on-error="handleAntwError"></iron-ajax>
+      <!--<?php echo $this->partial('legenda'); ?>-->
+      <h3>
+        <dgg-progress value="[[groep.percentage]]">[[_displayPercentage(groep.percentage)]]%</dgg-progress>
+        [[groep.naam]]
+      </h3>
+      <template is="dom-repeat" items="[[vragen]]" as="vraag">
+
+          <template is="dom-if" if="[[_isCheckbox(vraag.type)]]">
+            <dgg-checkboxvraag vraag="[[vraag]]"></dgg-checkboxvraag>
+          </template>
+
+          <template is="dom-if" if="[[!_isCheckbox(vraag.type)]]">
+            <p class="open">[[vraag.vraag]]</p>
+            <paper-textarea on-blur="_setVal" max-rows="5" maxlength="2500" value="[[vraag.antwoord.antwoord]]"></paper-textarea>
+          </template>
+      </template>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'dgg-vragen',
+      properties: {
+        groep: {
+          type: Object,
+          observer: '_getVragen',
+        },
+      },
+      _getVragen: function(groep) {
+        if (groep && groep.groep_id) {
+          this.$.vragenAjax.url = '/scripts/vragen.php';
+          this.$.vragenAjax.body = {'groep': groep.groep_id};
+          this.$.vragenAjax.generateRequest();
+        }
+      },
+      handleVragenResponse: function(event) {
+        this.vragen = [];
+        this.vragen = JSON.parse(event.detail.response);
+      },
+      handleVragenError: function(event) {
+        this.error = event.detail.request.xhr.response;
+      },
+
+      handleAntwResponse: function(event) {
+        // var response = JSON.parse(event.detail.response);
+        this.fire('fire-toast', 'Opmerking opgeslagen');
+      },
+      handleAntwError: function(event) {
+        this.error = event.detail.request.xhr.response;
+        this.fire('fire-toast', 'Opmerking kon niet worden opgeslagen...');
+      },
+      _setVal: function(event) {
+        this.$$('#antwoordAjax').body = 'vraag=' + event.model.vraag.vraag_id +
+                                        '&antwoord=' + event.target.value;
+        this.$$('#antwoordAjax').generateRequest();
+      },
+      _displayPercentage: function(p) {
+          return Math.round(p);
+        },
+      _isCheckbox: function(type) {
+        return type === 'checkbox';
+      },
+    });
+  </script>
+</dom-module>

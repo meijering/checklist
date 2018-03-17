@@ -1,0 +1,217 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+  <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+  <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+  <link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="../bower_components/neon-animation/neon-animatable-behavior.html">
+  <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+  <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="../bower_components/paper-button/paper-button.html">
+  <link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+  
+  
+  <link rel="import" href="shared-styles.html">
+  
+<dom-module id="dgg-checkboxvraag">
+    <template>
+      <style include="shared-styles iron-flex">
+        :host {
+          display: block;
+        }
+        h1 {
+          font-size:10px;
+          margin:0;
+          padding:0;
+        }
+  
+        paper-checkbox {
+          align-self: center;
+        }
+  
+        .flex-horizontal {
+          @apply --layout-horizontal;
+        }
+        .flexchild {
+          @apply --layout-flex;
+        }
+        label {
+          font-weight:bold;
+        }
+        .box {
+          padding:20px 20px 20px 0;
+          width:100%;
+        }
+        iron-icon {
+          cursor: pointer;
+        }
+        iron-icon.disabled {
+          color: #bbbbbb;
+          fill: #bbbbbb;
+        }
+        iron-icon[alt="tips"].disabled {
+          color: #bbbbbb;
+          fill: #bbbbbb;
+          cursor: default;
+        }
+        iron-icon[alt="remarks"]:not(.disabled) {
+          color: #000000;
+          fill: #000000;
+        }
+        div.tip {
+          margin-bottom: 5px;
+        }
+  
+      </style>
+  
+      <iron-ajax id="antwoordAjax" method="post" content-type="application/x-www-form-urlencoded" url="/scripts/addAntwoord.php" debounce-duration="300" on-response="handleAntwResponse" on-error="handleAntwError"></iron-ajax>
+  
+      <iron-ajax id="notitieAjax" method="post" content-type="application/x-www-form-urlencoded" url="/scripts/addNotitie.php" handle-as="json" debounce-duration="300" on-response="handleNotitieResponse" on-error="handleNotitieError"></iron-ajax>
+  
+      <paper-item>
+        <div class="flex-horizontal">
+          <div style="margin-right:10px">
+            <iron-icon icon="icons:lightbulb-outline" alt="tips" class$="[[_getClass(vraag.tips)]]" on-tap="toggleTips"></iron-icon>
+            <iron-icon icon="icons:speaker-notes" alt="opmerkingen" class$="[[_getClass(vraag.opmerkingen)]]" on-tap="toggleNotities"></iron-icon>
+          </div>
+          <div class="flexchild">
+            <paper-checkbox checked="[[vraag.checked]]" noink="" on-tap="_setVal">[[vraag.vraag]]</paper-checkbox>
+  
+      <template is="dom-if" if="[[_hasItems(vraag.tips)]]">
+        <template is="dom-if" if="[[tipsOpen]]">
+          <div class="box flex-horizontal">
+            <div>
+              <iron-icon icon="icons:lightbulb-outline" alt="tips" on-tap="toggleTips"></iron-icon>
+            </div>
+            <div class="flexchild">
+              <template is="dom-repeat" items="[[vraag.tips]]" as="tip">
+                <div class="tip">[[tip.tip]]</div>
+              </template>
+            </div>
+          </div>
+        </template>
+      </template>
+  
+      <template is="dom-if" if="[[notitiesOpen]]">
+        <div class="box flex-horizontal">
+          <div>
+            <template is="dom-if" if="[[!formOpened]]">
+              <paper-icon-button icon="icons:add-circle" on-tap="openForm" alt="Notitie aanmaken"></paper-icon-button>
+            </template>
+          </div>
+          <div class="flexchild">
+            <template is="dom-if" if="[[formOpened]]">
+              <paper-textarea id="remark" label="Opmerking" max-rows="3" maxlength="250"></paper-textarea>
+              <div class="buttons">
+                <paper-button on-tap="_setOpm">Opslaan</paper-button>
+                <paper-button on-tap="closeForm">Annuleren</paper-button>
+              </div>
+            </template>
+          </div>
+        </div>
+              <template is="dom-repeat" items="[[vraag.opmerkingen]]" as="notitie">
+                <div class="box flex-horizontal">
+                  <label>[[_formatDate(notitie.ingevoerd_op)]]</label>
+                  <div class="flexchild">[[notitie.opmerking]]</div>
+                </div>
+              </template>
+      </template>
+          </div>
+        </div>
+      </paper-item>
+  
+    </template>
+  
+    <script>
+      Polymer({
+        is: 'dgg-checkboxvraag',
+        properties: {
+          vraag: {
+            type:Object
+          },
+          tipsOpen: {
+            type: Boolean,
+            value: false
+          },
+          notitiesOpen: {
+            type: Boolean,
+            value: false
+          },
+          formOpened: {
+            type: Boolean,
+            value: false
+          }
+        },
+        attached: function() {
+          this.fitIntoObject = this;
+        },
+        handleAntwResponse: function(event) {
+          this.fire('vraag-changed', this.vraag.checked);
+          this.fire('fire-toast', 'Antwoord opgeslagen');
+        },
+        handleAntwError: function(event) {
+          this.error = event.detail.request.xhr.response;
+        },
+        _setVal: function(event) {
+          this.vraag.checked = !this.vraag.checked;
+          this.$$('#antwoordAjax').body = this.vraag.checked ?
+              `vraag=${this.vraag.vraag_id}&antwoord=1` :
+              `vraag=${this.vraag.vraag_id}&antwoord=`;
+          this.$$('#antwoordAjax').generateRequest();
+        },
+        handleNotitieResponse: function(event) {
+          this.vraag.opmerkingen = [];
+          var response = event.detail.response;  
+          this.set('vraag.opmerkingen', response);
+          this.$$('#remark').value = '';
+          this.closeForm();
+        },
+        handleNotitieError: function(event) {
+          this.error = event.detail.request.xhr.response;
+          this.fire('fire-toast', 'Notitie kon niet worden opgeslagen');
+        },
+        _setOpm: function(event) {
+          var body = {
+            vraag: this.vraag.vraag_id,
+            notitie: this.$$('#remark').value
+          };
+          this.$$('#notitieAjax').body = body;
+          this.$$('#notitieAjax').generateRequest();
+        },
+        _hasItems: function(items) {
+          return items && items.length > 0;
+        },
+        _getClass(items) {
+          return (items && items.length > 0) ? '' : 'disabled';
+        },
+        _nmbrOfItems: function(items) {
+          return items ? items.length : 0;
+        },
+        toggleTips: function() {
+          this.tipsOpen=!this.tipsOpen;
+        },
+        closeTips: function() {
+          this.tipsOpen=false;
+        },
+        toggleNotities: function() {
+          this.notitiesOpen=!this.notitiesOpen;
+        },
+        closeNotities: function() {
+          this.notitiesOpen=false;
+        },
+  
+        openForm: function() {
+          this.formOpened=true;
+        },
+        closeForm: function() {
+          this.formOpened=false;
+        },
+        _formatDate: function(dateString) {
+          var theDate = dateString.split(' ')[0].split('-');
+  
+          return theDate[2] + '-' + theDate[1] + '-' + theDate[0];
+        }
+  
+      });
+    </script>
+  </dom-module>
+  </body></html>

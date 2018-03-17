@@ -1,0 +1,18 @@
+{
+  "name": "dgg-checklist",
+  "version": "0.1.0",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.8.0",
+    "eslint-plugin-html": "^2.0.3",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-mock-server": "^1.1.4",
+    "http-proxy-middleware": "^0.17.4"
+  },
+  "scripts": {
+    "start": "gulp start & gulp mock",
+    "lint": "eslint . --ext js,html --ignore-path .gitignore",
+    "test": "npm run lint && polymer test"
+  }
+}
