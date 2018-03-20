@@ -25,7 +25,7 @@
             id="logoutAjax"
             method="post"
             content-type="application/x-www-form-urlencoded"
-            handle-as="text"
+            handle-as="json"
             on-response="handleUserResponse"
             on-error="handleUserError"></iron-ajax>
     <app-location route="{{route}}"></app-location>
@@ -63,7 +63,7 @@
 
         logout: function() {
           // remove user data
-          this.$.logoutAjax.url = '/scripts/logout.php';
+          this.$.logoutAjax.url = 'http://localhost:3001/auth/logout';
           this.$.logoutAjax.generateRequest();
           this._inAction = true;
         },

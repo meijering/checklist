@@ -41,8 +41,8 @@
     </style>
 
     <app-location route="{{route}}"></app-location>
-    <iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
-    <iron-ajax id="registerLoginAjax" method="post" content-type="application/x-www-form-urlencoded" handle-as="text" on-response="handleUserResponse"
+    <!-- <iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage> -->
+    <iron-ajax id="registerLoginAjax" method="post" content-type="application/x-www-form-urlencoded" handle-as="json" on-response="handleUserResponse"
       on-error="handleUserError"></iron-ajax>
     <template is="dom-if" if="[[loggedOut]]">
       <span>inloggen</span>
@@ -91,56 +91,56 @@
         },
         error: String,
       },
-      attached: function() {
-        this.addEventListener('has-logged-out', function() {
+      attached: function () {
+        this.addEventListener('has-logged-out', function () {
           this.storedUser = {};
         }.bind(this));
       },
-      _checkLoggedIn: function(user) {
+      _checkLoggedIn: function (user) {
         if (user && user.loggedin) {
           this.dispatchEvent(new CustomEvent('logged-in', {
-                bubbles: true,
-                composed: true,
-                detail: user,
-              })
-            );
+            bubbles: true,
+            composed: true,
+            detail: user,
+          })
+          );
         }
       },
-      _showLogin: function() {
+      _showLogin: function () {
         return !this.storedUser.loggedin || this.loggedout;
       },
-      _setReqBody: function() {
+      _setReqBody: function () {
         this.$.registerLoginAjax.body = this.formData;
       },
-      postLogin: function() {
-        this.$.registerLoginAjax.url = '/scripts/login.php';
+      postLogin: function () {
+        this.$.registerLoginAjax.url = 'http://localhost:3001/auth/login';
         this._setReqBody();
         this.$.registerLoginAjax.generateRequest();
         this._inAction = true;
       },
-      postRegister: function() {
+      postRegister: function () {
         this._setReqBody();
         this.$.registerLoginAjax.generateRequest();
         this._inAction = true;
       },
-      handleUserResponse: function(event) {
+      handleUserResponse: function (event) {
         this._inAction = false;
-        var response = JSON.parse(event.detail.response);
-        if (response.id_token) {
+        var response = event.detail.response;
+        if (response.user) {
           this.error = '';
           this.storedUser = {
-            username: this.formData.username,
-            name: response.naam,
-            lastVisit: response.laatst_ingelogd,
-            token: response.id_token,
+            name: response.user.naam,
+            lastVisit: response.user.laatst_ingelogd,
+            token: response.user.id,
             loggedin: true,
           };
           // reset form data
           this.formData = {};
         }
       },
-      handleUserError: function(event) {
+      handleUserError: function (event) {
         this.error = 'Inloggen mislukt.';
+        this._inAction = false;
       },
     });
   </script>
