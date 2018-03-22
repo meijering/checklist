@@ -20,7 +20,7 @@ gulp.task('start', function() {
 
 //    require('connect-gzip').gzip()
     connect.server({
-        root: '.',
+        root: './build/es5-bundled',
         port: 3333,
         middleware: function() {
                 return [

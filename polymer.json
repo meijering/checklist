@@ -13,18 +13,14 @@
   "sources": [
     "src/**/*",
     "gfx/**/*",
-    "scripts/**/*",
-    "data/**/*",
     "bower.json"
   ],
   "extraDependencies": [
-    "manifest.json",
-    "bower_components/webcomponentsjs/webcomponents-lite.js"
+    "bower_components/webcomponentsjs/*.js",
+    "!bower_components/webcomponentsjs/gulpfile.js",
+    "manifest.json"
   ],
-  "builds": [{
-    "bundle": true,
-    "js": {"minify": true},
-    "css": {"minify": true},
-    "html": {"minify": true}
+  "builds": [  {
+    "preset": "es5-bundled"
   }]
 }
